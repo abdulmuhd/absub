@@ -42,6 +42,7 @@
 		document.forms[0].addEventListener('submit', (e) => {
 
 			e.preventDefault();
+			window.location = '/home.html'
 			let link = 'https://betasub.com.ng/newb/auth/loginend.php'
 			let formData = new FormData()
 			formData.append('PhoneNumber', '08062393930')
@@ -54,6 +55,7 @@
 				})
 				.then(res => res.json())
 				.then(data => {
+		//			window.location = '/home.html'
 				  let newData = JSON.parse(data)
 					if (newData['success'] == '1') {
 						console.log(data)
