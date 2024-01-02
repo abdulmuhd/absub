@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,6 +29,16 @@
     <div class="card-body bg-white">
       <form class="form">
         <div class="form-group mb-4">
+          <label for="networkid" class="">Network</label>
+          <select name="select" id="" class="form-select">
+            <option value="0">--SELECT NETWORK--</option>
+            <option value="1">MTN</option>
+            <option value="2">AIRTEL</option>
+            <option value="3">GLO</option>
+            <option value="4">9MOBILE</option>
+          </select>
+        </div>
+        <div class="form-group mb-4">
           <label for="phone">Phone Number</label>
           <input id="phone" type="number" class="form-control">
         </div>
@@ -48,9 +57,14 @@
     </div>
   </div>
   <script>
+    let networkId = document.getElementsByName('select')[0]
+    networkId.addEventListener('change', ()=>{
+      alert(networkId.innerHTML)
+    })
     document.forms[0].addEventListener('submit', (e) => {
       e.preventDefault()
-
+      
+      
       let phone = document.getElementById('phone').value
       let pin = document.getElementById('pin').value
       let amount = document.getElementById('amount').value
@@ -66,8 +80,8 @@
       fetch(url, {
           method: 'POST',
           headers: {
-        //    "Content-Type": "application/json",
-        //   "Token": "xv31b52CA9hsBCwdCcb34A7aiJ1CAnAlAxy3z8m3CC26C4CEx5eAgApC9oI0"
+            //    "Content-Type": "application/json",
+            "Token": "xv31b52CA9hsBCwdCcb34A7aiJ1CAnAlAxy3z8m3CC26C4CEx5eAgApC9oI0"
           }
         })
         .then(res => res.json())
