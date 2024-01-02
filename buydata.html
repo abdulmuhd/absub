@@ -61,22 +61,25 @@
       formData.append('mobile_number', phone)
       formData.append('request_id', '7uw76322')
 
-      let url = 'https://salfat.com.ng/api/v1/data.php'
+      let url = 'https://payplus.ng/auth/userdetails';
+
       fetch(url, {
           method: 'POST',
-          body: JSON.stringify(formData),
-          header: {
-            "Authorization": "U1PBA084zAFwMbUbKonfLt7YGXnhy3CTwMHPMNQfU4R10QquRr",
-            "Content-Type": "application/json"
+          headers: {
+            "Content-Type": "application/json",
+            "Token": "xv31b52CA9hsBCwdCcb34A7aiJ1CAnAlAxy3z8m3CC26C4CEx5eAgApC9oI0"
           }
         })
         .then(res => res.json())
         .then(data => {
-          console.log(data)
-          new Swal('Success', `${amount} Airtime Purchased`, 'success')
-
+          console.log(data);
+          if (data['status'] == 'fail') {
+            Swal.fire('Error Message', data['msg'], 'error');
+          } else {
+            Swal.fire('Success', 'Purchase Successful', 'success');
+          }
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
     })
   </script>
 </body>
