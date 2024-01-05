@@ -75,17 +75,18 @@
       formData.append('mobile_number', phone)
       formData.append('request_id', '7uw76322')
 
-      let url = 'https://corsanywhere.herokuapp.com/https://payplus.ng/auth/userdetails';
+      let url = "https://kvdata.net/api/user/";
 
       fetch(url, {
-          method: 'POST',
+          method: 'GET',
           headers: {
             "Content-Type": "application/json",
-            "Token": "xv31b52CA9hsBCwdCcb34A7aiJ1CAnAlAxy3z8m3CC26C4CEx5eAgApC9oI0"
+            "Token": "c5d88c6d8a4420b1d5bf0b56170fed061f094465"
           }
         })
         .then(res => res.text())
         .then(data => {
+          alert(data);
           console.log(data);
           if (data['status'] == 'fail') {
             Swal.fire('Error Message', data['msg'], 'error');
@@ -93,7 +94,7 @@
             Swal.fire('Success', 'Purchase Successful', 'success');
           }
         })
-        .catch(err => console.log(err));
+        .catch(err => alert(err));
     })
   </script>
 </body>
