@@ -75,16 +75,16 @@
       formData.append('mobile_number', phone)
       formData.append('request_id', '7uw76322')
 
-      let url = 'https://payplus.ng/auth/userdetails';
+      let url = 'https://corsanywhere.herokuapp.com/https://payplus.ng/auth/userdetails';
 
       fetch(url, {
           method: 'POST',
           headers: {
-            //    "Content-Type": "application/json",
+            "Content-Type": "application/json",
             "Token": "xv31b52CA9hsBCwdCcb34A7aiJ1CAnAlAxy3z8m3CC26C4CEx5eAgApC9oI0"
           }
         })
-        .then(res => res.json())
+        .then(res => res.text())
         .then(data => {
           console.log(data);
           if (data['status'] == 'fail') {
