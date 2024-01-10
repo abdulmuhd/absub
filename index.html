@@ -18,18 +18,21 @@
 
 <body style="background-color: #EDF1FA">
   <div class="card d-flex justify-content-center align-items-center vh-100 bg-white">
+    <p class="p-4">
+      Enter your Username and Password
+    </p>
     <form class="form" accept-charset="utf-8">
-      <div class="card p-4 bg-white shadow">
-        <div class="form-group mt-4">
-          <label for="data">Phone Number</label>
-          <input class="form-control" type="number" name="PhoneNumber" id="username" />
+      <div class="card border-0 p-4 bg-white shadow">
+        <div class="form-group my-2">
+          <label class="text-body-emphasis" for="data">Phone Number</label>
+          <input class="form-control border-0 bg-body-secondary" type="number" name="PhoneNumber" id="username" />
         </div>
         <div class="form-group my-4">
           <label>Password</label>
-          <input class="form-control border-0 rounded-md bg-secondary-emphasis my-2" type="password" name="Password" id="password" />
+          <input class="form-control border-0 rounded-md bg-body-secondary my-2" type="password" name="Password" id="password" />
         </div>
         <div class="d-grid">
-          <input id="btn" class="btn btn-info text-white" type="submit" name="submit" value="Login" />
+          <input id="btn" class="btn btn-primary text-white" type="submit" name="submit" value="Login" />
         </div>
       </div>
     </form>
@@ -38,9 +41,8 @@
   <script>
     let myForm = document.getElementsByClassName('form')[0]
     document.forms[0].addEventListener('submit', (e) => {
-
       e.preventDefault();
-      //window.location = '/home.html'
+      window.location = '/home.html'
       let link = 'https://www.gongozconcept.com/api/user/'
       let formData = new FormData()
       formData.append('PhoneNumber', '08062393930')
