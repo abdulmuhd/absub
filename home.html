@@ -16,7 +16,7 @@
   <style>
     .pt-1 {
       font-size: 14px;
-      color: grey;
+      color: darkgrey;
       margin-top: 4px;
     }
   </style>
@@ -29,13 +29,10 @@
 
 <body style="background-color: #EDF1FA">
   
-  <nav class="navbar shadow bg-primary-subtle fixed-top">
+  <nav class="navbar bg-primary fixed-top">
     <div class="container-fluid">
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
-                                                                                                                              aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon text-white border-0"></span>
-        <a class="navbar-brand text-primary fw-bold" href="#">ABSUB</a>
-      </button>
+        <i class="bi-list fs-1 text-white" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"></i>
+        <a class="navbar-brand text-light fw-bold" href="#">ABSUB</a>
       <i class="bi-bell fs-3 text-white"></i>
       <div class="offcanvas offcanvas-start w-75" tabindex="-1" id="offcanvasNavbar"
                                                                                                                               aria-labelledby="offcanvasNavbarLabel">
@@ -56,38 +53,37 @@
       </div>
     </div>
   </nav>
-  <br><br><br>
+  <br>
+  <br>
   <!--NavBar-->
-  <div class="container p-2">
-    <h5 id="title" class="px-4 py-1 text-secondary">Welcome to homepage</h5>
-    <div class="card m-2 shadow border-0">
-      <div class="bg-primary-subtle text-dark justify-content-between card-header d-flex">
+      <div class="card bg-primary border-0 rounded-bottom-5">
+<!--       <div class="bg-primary-subtle text-dark justify-content-between card-header d-flex">
         <div class="">Account Details</div>
        <div class="">Type<span class="bg-success text-light rounded-2 ms-2 p-1"> SMART</span></div>
-      </div>
+      </div> -->
       <div class="card-body p-4 row">
         <div class="d-flex justify-content-between">
           <div>
-            <div class="pt-1 pb-1">Available Balance</div>
-            <div class="h3 text-primary text-bolder"><span>&#8358;</span>150.0</div>
+            <div class="pt-1 pb-1 text-light">Available Balance</div>
+            <div class="h3 text-light text-bolder"><span>&#8358;</span>150.0</div>
           </div>
           <div>
-            <div class="pt-1">Moniepoint</div>
+            <div class="pt-1 text-light">Moniepoint</div>
             <i class="bi bi-duplicate text-primary fs-6 text-primary"></i>
-            <div class="h6 pt-2">0003166225</div>
+            <div class="h6 pt-2 text-light">0003166225</div>
           </div>
         </div>
         <div class="d-flex justify-content-between">
-          <div class="pt-1 text-black">Bonus <span>&#8358;</span>0.0</div>
-            <button class="btn btn-outline-primary me-0"><i class="bi bi-plus"></i>Add Money</button>
+          <div class="pt-1 text-light">Bonus <span>&#8358;</span>0.0</div>
+            <button class="btn btn-outline-light me-0"><i class="bi bi-plus"></i>Add Money</button>
         </div>
       </div>
     </div>
+    
+  <div class="container p-2">
     <!--tools-->
-    <div class="card shadow border-0 my-4 mx-2">
-      <div class="bg-primary-subtle card-header">
-        Tools
-      </div>
+      <div class="mx-2 mt-2 card-header">Tools</div>
+    <div class="card shadow border-0 m-2">
       <div class="card-body row">
         <a href="" class="col-3 text-center text-decoration-none">
           <i class="bi-clock fs-1 text-primary"></i>
@@ -108,8 +104,8 @@
       </div>
     </div>
     <!-- services -->
+      <div class="mx-2 mt-4 mb-2 card-header">Services</div>
     <div class="card mx-2 d-flex justify-content-end shadow border-0">
-      <div class="bg-primary-subtle card-header">Services</div>
       <!-- first row  -->
       <div class="d-flex mt-4 justify-content-evenly">
         <a class="text-center text-decoration-none">
@@ -153,7 +149,7 @@
         </a>
       </div>
     </div>
-    <img src="images/whatsapp.jpg" height="50px" width="50px" id="whatsapp" class="rounded-4 fixed-bottom m-4">
+    <img src="images/whatsapp.jpg" height="50px" width="50px" id="whatsapp" class="rounded-4 fixed-bottom m-4"/>
   </div>
 </body>
 <script>
@@ -162,11 +158,16 @@
     window.location.href = 'https://wa.me/+2348062393930'
   })
   let data = JSON.parse(sessionStorage.getItem('profile'))
-  document.getElementsByTagName('h3')[0].innerHTML = 'Welcome, Nuhu Abubakar'
-  let url = 'https://salfat.com.ng/api/buy_airtimePHP'
-  window.onload = function() {
-    Swal.fire('', 'Welcome to ABSUB, Happy New Year')
+    window.onload = function() {
   }
+  fetch('http://arewapro.rf.gd/auth/login.php?i=1')
+  .then(res=>res.text())
+  .then(data=>{
+    console.log(data)
+    Swal.fire('', 'Welcome to ABSUB, Happy New Year')
+    document.getElementById('title').innerHTML=data[0].title
+  })
+  .catch(err=>console.log(err))
 </script>
 
 </html>
